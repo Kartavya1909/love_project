@@ -1,0 +1,158 @@
+.container {
+  width: min(90vw, 420px);
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+  text-align: center;
+}
+.container h2 {
+  line-height: 1.4;
+}
+
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #233ed5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+button {
+  padding: 10px 18px;
+  font-size: clamp(16px, 4vw, 18px);
+  border-radius: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+}
+.btn_yes {
+  background: linear-gradient(135deg, #ff5fa2, #ff9acb);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+
+  padding: 12px 26px;
+  border: none;
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 20px rgba(255, 95, 162, 0.45);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn_yes:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 12px 28px rgba(255, 95, 162, 0.6);
+}
+
+/* mobile tap feedback */
+.btn_yes:active {
+  transform: scale(1.02);
+}
+@keyframes yesPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.btn_yes {
+  animation: yesPulse 1.6s infinite;
+}
+
+
+.btn_no {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+.valentine-img {
+  width: clamp(110px, 35vw, 160px);
+  height: auto;
+  margin-bottom: 18px;
+}
+
+#celebration-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* floating emojis */
+.celebrate {
+  position: absolute;
+  bottom: -40px;
+  font-size: 28px;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* confetti dots */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+@media (max-width: 600px) {
+  .celebrate {
+    font-size: 22px;
+  }
+
+  .confetti {
+    width: 7px;
+    height: 7px;
+  }
+}
