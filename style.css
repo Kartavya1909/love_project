@@ -1,16 +1,16 @@
 .container {
-  width: min(90vw, 420px);
+  width: min(85vw, 360px);
   padding: clamp(18px, 4vw, 28px);
-  border-radius: 30px;
+  border-radius: 26px;
 
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 245, 249, 0.85);
+  backdrop-filter: blur(10px);
 
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.25),
-    inset 0 0 0 1px rgba(255,255,255,0.4);
-    max-height: 85vh;
+  box-shadow: 0 16px 45px rgba(0,0,0,0.2);
+    position: relative;
   text-align: center;
+}
+
 }
 .container h2 {
   line-height: 1.4;
@@ -91,9 +91,11 @@ button {
 
 
 .btn_no {
-  position: fixed;
+  position: fixed;   /* relative to screen */
   transition: all 0.25s ease;
+  z-index: 999;
 }
+
 .valentine-img {
   width: clamp(90px, 28vw, 140px);
   height: auto;

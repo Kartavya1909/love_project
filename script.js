@@ -60,27 +60,24 @@ yesBtn.addEventListener("click", () => {
 /* ---------------- SAFE MOVEMENT ---------------- */
 
 function moveButton() {
-  const padding = 20;
+  const padding = 12;
 
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  const maxX = vw - noBtn.offsetWidth - padding;
-  const maxY = vh - noBtn.offsetHeight - padding;
+  const btnW = noBtn.offsetWidth;
+  const btnH = noBtn.offsetHeight;
 
-  const randomX = Math.max(
-    padding,
-    Math.random() * maxX
-  );
+  const maxX = vw - btnW - padding;
+  const maxY = vh - btnH - padding;
 
-  const randomY = Math.max(
-    padding,
-    Math.random() * maxY
-  );
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
 
   noBtn.style.left = `${randomX}px`;
   noBtn.style.top = `${randomY}px`;
 }
+
 
 /* ---------------- CELEBRATION ---------------- */
 
