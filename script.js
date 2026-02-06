@@ -1,6 +1,7 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const img = document.getElementById("valentineImg");
+const imageText = document.getElementById("imageText");
 
 const layer = document.getElementById("celebration-layer");
 const sound1 = document.getElementById("celebrationSound1");
@@ -8,7 +9,7 @@ const sound2 = document.getElementById("celebrationSound2");
 
 /* ---------------- SAFETY CHECK ---------------- */
 
-if (!noBtn || !yesBtn || !img || !layer) {
+if (!noBtn || !yesBtn || !img || !layer || !imageText) {
   console.error("Missing required DOM elements");
 }
 
@@ -28,6 +29,15 @@ const images = {
   yes2: "images/happy2.png"
 };
 
+/* ---------------- CAPTIONS ---------------- */
+
+const captions = {
+  firstNo: "did you really say no!!🥹",
+  manyNo: "hehe you really tht i will let you say no😏",
+  yes1: "YAYYYY🤗🎉🎊",
+  yes2: "I love you baby🥰🫂❤️"
+};
+
 /* ---------------- NO BUTTON LOGIC ---------------- */
 
 function triggerNoEscape() {
@@ -37,10 +47,14 @@ function triggerNoEscape() {
 
   if (!firstHoverDone) {
     img.src = images.firstNo;
+    imageText.textContent = captions.firstNo;
     firstHoverDone = true;
   } else {
     img.src = images.manyNo;
+    imageText.textContent = captions.manyNo;
   }
+
+  imageText.classList.add("show");
 
   moveButton();
 
@@ -64,9 +78,12 @@ yesBtn.addEventListener("click", () => {
   celebrationStarted = true;
 
   img.src = images.yes1;
+  imageText.textContent = captions.yes1;
+  imageText.classList.add("show");
 
   setTimeout(() => {
     img.src = images.yes2;
+    imageText.textContent = captions.yes2;
   }, 1200);
 
   startCelebration();
@@ -172,8 +189,10 @@ function startFloatingEmojis() {
       Math.random() * window.innerWidth + "px";
 
     span.style.fontSize =
-      18 + Math.random() *
-      (window.innerWidth < 600 ? 20 : 28) + "px";
+      18 +
+      Math.random() *
+        (window.innerWidth < 600 ? 20 : 28) +
+      "px";
 
     layer.appendChild(span);
 

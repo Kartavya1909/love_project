@@ -103,6 +103,20 @@ button {
   margin-bottom: 18px;
 }
 
+.image-text {
+  margin: 10px 0 14px;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 600;
+  color: #ff4f9a;
+  min-height: 1.5em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-text.show {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 #celebration-layer {
   position: fixed;
   inset: 0;
