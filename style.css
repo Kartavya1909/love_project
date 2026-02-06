@@ -11,7 +11,6 @@
   text-align: center;
 }
 
-}
 .container h2 {
   line-height: 1.4;
 }
@@ -28,6 +27,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+
 }
 @keyframes gradient {
     0% {
@@ -63,10 +68,11 @@ button {
   border: none;
   border-radius: 14px;
 
-  box-shadow:
-    0 8px 20px rgba(255, 95, 162, 0.45);
+  box-shadow: 0 8px 20px rgba(255, 95, 162, 0.45);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  animation: yesPulse 1.6s infinite;
 }
 
 .btn_yes:hover {
@@ -84,11 +90,6 @@ button {
   50% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
-
-.btn_yes {
-  animation: yesPulse 1.6s infinite;
-}
-
 
 .btn_no {
   position: fixed;   /* relative to screen */
@@ -157,4 +158,8 @@ button {
     width: 7px;
     height: 7px;
   }
+}
+.celebrate,
+.confetti {
+  will-change: transform, opacity;
 }
